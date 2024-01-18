@@ -1,0 +1,93 @@
+<div id="sidebar">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <img src="{{url_for('static', filename='images/logos/celts_logo_white.png')}}" alt="CELTS-image" width="230">
+    </a>
+    <a href="#maincontent" class="visually-hidden-focusable">Skip to main content</a>
+    <hr>
+
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="/eventsList/{{g.current_term}}/studentLedEvents" class="nav-link text-white {{'active' if 'eventsList' in request.path}}" {{"aria-current='page'" if 'eventsList' in request.path}}>
+          Events List
+        </a>
+      </li>
+      <li>
+        <a href="/profile/{{g.current_user}}" class="nav-link text-white {{'active' if 'profile' and g.current_user.username in request.path }}" {{"aria-current='page'" if 'profile' in request.path }}>
+          My Profile
+        </a>
+      </li>
+
+      {% if g.current_user.isFaculty and not g.current_user.isAdmin%}
+      <li>
+        <a href="/serviceLearning/courseManagement" class="nav-link text-white {{'active' if request.path =='/serviceLearning/courseManagement'}}" {{"aria-current='page'" if request.path =='/serviceLearning/courseManagement'}}>
+          Course Proposals
+        </a>
+      </li>
+      {% endif %}
+
+      {% if g.current_user.isAdmin %}
+      <li>
+        <a href="/eventTemplates" class="nav-link text-white {{'active' if 'eventTemplates' in request.path}}" {{"aria-current='page'" if 'eventTemplates' in request.path}}>
+          Create Event
+        </a>
+      </li>
+      <li>
+        <a href="/search_student" class="nav-link text-white {{'active' if request.path =='/search_student'}}" {{"aria-current='page'" if request.path =='/search_student'}}>
+          Student Search
+        </a>
+      </li>
+      <li>
+        {% if not g.current_user.isCeltsStudentStaff %}
+        <a href="/serviceLearning/courseManagement" class="nav-link text-white {{'active' if request.path =='/serviceLearning/courseManagement'}}" {{"aria-current='page'" if request.path =='/serviceLearning/courseManagement'}}>
+          Course Proposals
+        </a>
+        {% endif %}
+      </li>
+      <li>
+        {% if g.current_user.isCeltsAdmin %}
+        <nav class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+            <button class="navbar-toggler text-white border-0 fs-6 ps-3 dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              Admin
+            </button>
+          </div>
+        </nav>
+        <div class="{{ 'collapse-show' if request.path in ['/adminLogs','/manageServiceLearning','/admin','/courseManagement','/manageBonner'] else 'collapse'}}" id="navbarToggleExternalContent">
+          <div class="bg-dark ps-3">
+            <a href="/adminLogs" class="nav-link text-white {{ 'active' if request.path =='/adminLogs' }}">
+              Activity Logs
+            </a>
+            <a href="/admin" class="nav-link text-white {{'active' if request.path =='/admin'}}" {{"aria-current='page'" if request.path =='/admin'}}>
+              Settings
+            </a>
+            <a href="/manageServiceLearning" class="nav-link text-white {{ 'active' if request.path =='/manageServiceLearning' }}">
+              Course Management
+            </a>
+            <a href="/manageBonner" class="nav-link text-white {{ 'active' if request.path =='/manageBonner' }}">
+              Bonner Management
+            </a>
+          </div>
+        </div>
+        {% endif %}
+      </li>
+
+      {% endif %}
+    </ul>
+    <hr>
+    {% if env != 'production' %}
+        <h6>Current User: {{g.current_user.username}}</h6>
+        <form action="/switch_user" method="POST" name="userSelectForm">
+          <select name="newuser" class="form-select" style="margin-bottom: 10px" onchange="this.form.submit()">>
+            <option {{"selected" if g.current_user.username == config.default_user }} value="{{config.default_user}}">Default User: {{config.default_user}}</option>
+            <option {{"selected" if g.current_user.username == "ramsayb2"}} value="ramsayb2">Admin: ramsayb2</option>
+            <option {{"selected" if g.current_user.username == "neillz"}} value="neillz">Student Staff: neillz</option>
+            <option {{"selected" if g.current_user.username == "ayisie"}} value="ayisie">Student: ayisie</option>
+            <option {{"selected" if g.current_user.username == "heggens"}} value="heggens">Faculty: heggens</option>
+          </select>
+        </form>
+    {% endif %}
+    <a type="button" href='/logout' class="btn btn-secondary btn-secondary">Log out</a>
+  </div>
+</div>

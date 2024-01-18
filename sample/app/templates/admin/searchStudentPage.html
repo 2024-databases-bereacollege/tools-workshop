@@ -1,0 +1,27 @@
+{%set title = "Student Search"%}
+{% extends "base.html"%}
+
+{% block scripts %}
+  {{super()}}
+<script type="module" src="/static/js/searchStudent.js"></script>
+{% endblock %}
+
+{% block styles %}
+  {{super()}}
+{% endblock %}
+
+{% block app_content %}
+<form id= "searchStudent" action="/userProfile" method="post">
+  <h1 class="text-center mb-3">Student Search Page</h1><br>
+  <div class="col-sm-6 col-sm-offset-3 m-auto">
+    <div class="row">
+      <div class="form-group ui-widget">
+        <div class="input-group">
+          <input type="input" id="searchStudentsInput" name="searchStudentsInput" class="form-control" placeholder="Search" autocomplete="off"/>
+          <span class="input-group-text" id="searchIcon"><span class="bi bi-search"></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}

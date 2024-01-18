@@ -1,0 +1,121 @@
+secret_key: "123"
+use_shibboleth: False
+default_user: "ramsayb2"
+
+celts_admin_contact: "celts@berea.edu"
+support_email_contact: "support@bereacollege.onmicrosoft.com"
+show_queries: True
+test_entry: "Default"
+
+db:
+    name: "celts"
+    host: "db"
+    username: "celts_user"
+    password: "password"
+
+tracy:
+    name: "UTE"
+    host: "timemachine1sql.berea.edu"
+    user: "ute_limited"
+    password: "OVERRIDE"
+
+ldap:
+    user: "BPLP"
+    password: "OVERRIDE"
+
+files:
+  base_path: 'app/static/files'
+  email_attachment_path: 'emailattachments'
+  event_attachment_path: 'eventattachments'
+  course_attachment_path: 'courseattachments'
+
+MAIL_ENABLED: True
+MAIL_SERVER: "smtp.gmail.com" # use smtp.gmail.com for gmail, mail.berea.edu for Berea
+MAIL_PORT: 465                # use port 465 for gmail, use 25 for Berea
+MAIL_USERNAME: '' # Add your gmail username and password to local-override.yml
+MAIL_PASSWORD: '' # For gmail, turn on 2-factor and create an application password
+MAIL_USE_TLS: False
+MAIL_USE_SSL: True  # True for gmail, False for mail.berea.edu
+MAIL_DEFAULT_SENDER: 'support@bereacollege.onmicrosoft.com'
+MAIL_OVERRIDE_ALL: "celts-aaaacl2oi7xuiw3eaqsvbo6zmu@studentprogrammers.slack.com"
+MAIL_REPLY_TO_ADDRESS: "celts-aaaacl2oi7xuiw3eaqsvbo6zmu@studentprogrammers.slack.com"
+
+
+contributors:
+  - name: "Scott Heggen"
+    role: "Team Lead"
+  - name: "Brian Ramsay"
+    role: "Team Lead"
+  - name: "Alex Bryant"
+    role: "Team Lead"
+  - name: "Anderson Stettner"
+    role: "Team Lead"
+  - name: "Hailey Bevins"
+    role: "Software Engineer"
+  - name: "Guillermo Cruz"
+    role: "Software Engineer"
+  - name: "Ela Jamali"
+    role: "Software Engineer"
+  - name: "Will Romano"
+    role: "Software Engineer"
+  - name: "May Jue"
+    role: "Software Engineer"
+  - name: "Shageldi Ovezov"
+    role: "Software Engineer"
+  - name: "Sandesh Lamichhane "
+    role: "Software Engineer"
+  - name: "Hila Manalai"
+    role: "Software Engineer"
+  - name: "Luis Riera"
+    role: "Software Engineer"
+  - name: "Lisandro Padron"
+    role: "Software Engineer"
+  - name: "Audrey Craft"
+    role: "Software Engineer"
+  - name: "Liberty Mupotsa"
+    role: "Software Engineer"
+  - name: "Ebenezer Ayisi"
+    role: "Software Engineer"
+  - name: "Gaston Jarju"
+    role: "Software Engineer"
+  - name: "Karina Agliullova"
+    role: "Software Engineer"
+  - name: "Zach Neill"
+    role: "Software Engineer"
+  - name: "Tyler Parton"
+    role: "Software Engineer"
+  - name: "Sreynit  Khatt"
+    role: "Software Engineer"
+  - name: "Isaac Narteh"
+    role: "Software Engineer"
+  - name: "Paw Thaw"
+    role: "Software Engineer"
+  - name: "Ala Qasem"
+    role: "Software Engineer"
+  - name: "Madina Solijonova"
+    role: "Software Engineer"
+  - name: "Garrett Clark"
+    role: "Software Engineer"
+  - name: "Mostaphe Mohamud"
+    role: "Software Engineer"
+  - name: "Fleur Gahimbare"
+    role: "Software Engineer"
+  - name: "Finn Bledsoe"
+    role: "Software Engineer"
+  - name: "Joey Martin"
+    role: "Software Engineer"
+  - name: "Liliane Azabe "
+    role: "Software Engineer"
+  - name: "Bineta Doucoure"
+    role: "Software Engineer"
+  - name: "Mercy Eze"
+    role: "Software Engineer"
+  - name: "Michel Moncada"
+  - name: "Stevenson Michel"
+    role: "Software Engineer"
+  - name: "Lawrence Hoerst"
+    role: "Software Engineer"
+  - name: "Oluwagbayi Makinde"
+    role: "Software Engineer"
+  - name: "Chris Anderson"
+    role: "Software Engineer"

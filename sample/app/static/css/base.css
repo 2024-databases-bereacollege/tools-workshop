@@ -1,0 +1,105 @@
+.main-content {
+    min-height: 100vh;
+    margin-bottom: -80px;
+    width:95%;
+    overflow-wrap: break-word;
+    position: relative;
+    padding-top: 3rem;
+}
+.flash_container{
+    width: 80%;
+    margin: -50px 10% 0 10%;
+    position: absolute;
+    z-index: 10;
+    opacity: .9;
+    margin-top:-50px;
+}
+
+.toast-container{
+  top: 0;
+  z-index: 11;
+}
+
+.form-control.invalid,
+input.invalid,
+select.invalid {
+  background-color: #ffdddd;
+}
+
+select.empty {
+    color: gray;
+}
+
+
+.spacer {
+    height: 100px; /* 80px + whatever spacing above the footer we want (in this case 20px) */
+}
+
+.scroll-container {
+    max-height: 100vh;
+}
+
+.bi-list {
+    font-size: 2rem;
+}
+
+.bi-x {
+    font-size: 2rem;
+}
+
+.footer {
+  background-color: #e9ebec;
+  color:#1e2433;
+  text-align: center !important;
+  height: 80px;
+  line-height: 80px; /* Vertically center the text */
+  position:relative;
+  z-index:10
+}
+
+.footerlink {
+  font-weight: bold;
+
+}
+
+.skipContent {
+  left:0px;
+  position:absolute;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  z-index:0;
+}
+.heading-size{
+    font-size: 1.2em;
+}
+
+.skipContent:focus, .skipContent:active {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  left: -34%;
+  top: -1%;
+  width: 12%;
+  height: auto;
+  overflow:auto;
+  margin: 10px 35%;
+  padding:5px;
+  border-radius: 4px;
+  text-align:center;
+  font-size:1.2em;
+  z-index:999;
+}
+
+.templateList a:last-child {
+    border-bottom: 5px solid #d7d7d7
+}
+
+.sidebar-icon {
+    z-index: 1049;
+}
+
+.rsvp-btn{
+    padding-top: 4em;
+}

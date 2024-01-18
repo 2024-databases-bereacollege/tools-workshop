@@ -1,0 +1,64 @@
+  <div class="modal fade" tabindex="-1" id="proposal_view">
+    <div class="modal-dialog">
+      <div class=" modal-content">
+        <div class=" modal-header">
+          <h5  class="col-11 modal-title text-center">Review Course Proposal </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped ml-4" id="SLCProposalTable">
+            <tbody id="facultyTable">
+              <tr>
+                <td class="fw-bold">Course Name</td>
+                <td>{{course.courseName}}</td>
+
+              </tr>
+              <tr>
+                <td class="fw-bold"> Instructor(s)</td>
+                <td>
+                  {% for instructor in instructors_data %}
+                  <table>{{instructor.user.firstName}} {{instructor.user.lastName}}</table>
+                  {% endfor%}
+                </td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Course Abbreviation and Number</td>
+                <td>{{course.courseAbbreviation}}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Course Credit</td>
+                <td>{{course.courseCredit}}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Term</td>
+                <td>{{course.term.description}}</td>
+              </tr>
+              <tr>
+                  <td class="fw-bold">Occurrence</td>
+                  <td>
+                    {% if course.isRegularlyOccurring == True %}
+                      Regularly
+                    {% else %}
+                      One-time special topics/4-week course offering
+                    {% endif %}
+                  </td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Status</td>
+                <td>{{course.status.status}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Close</button>
+          {% if course.status.status == "Approved" %}
+            <button type="button" class="btn btn-warning" data-id="{{course.id}}" id="unapproveButton" onclick="unapproveProposal(this)">Unapprove</button>
+          {% else %}
+            <a type="button" href="/serviceLearning/editProposal/{{course.id }}"  class="btn btn-primary">Edit</a>
+            <button type="button" class="btn btn-success" data-id="{{course.id}}" id="approveButton" onclick="approveProposal(this)">Approve</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
